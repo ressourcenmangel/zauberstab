@@ -1,0 +1,48 @@
+$zb-link-color: #f00 !default;
+$zb-link-decoration: none !default;
+$zb-link-hover-color: darken(#f00, 30%) !default;
+$zb-link-hover-decoration: underline !default;
+$zb-link-transition: color 0.2s !default;
+$zb-z-index-list: 'default' !default;
+$zb-create-helpers: true !default;
+$zb-helpers-prefix: 'zb-u' !default;
+
+/// Body padding list
+///
+/// @type Map
+$mq-body-padding: (
+  mobile: 10px,
+  tablet: 20px,
+  desktop: 30px,
+  wide: 40px,
+) !default;
+
+/// Gutter list
+///
+/// @type Map
+$mq-gutter: (
+  mobile: 0,
+  tablet: 10px,
+  desktop: 20px,
+  wide: 30px,
+) !default;
+
+/// Max container sizes
+///
+/// @type Map
+$mq-container-max-widths: (
+  mobile: 600px,
+  tablet: 900px,
+  desktop: 1200px,
+  wide: 1400px,
+) !default;
+
+/// Columns
+///
+/// @type Map
+$mq-columns: (
+  mobile: 1,
+  tablet: 2,
+  desktop: 3,
+  wide: 3,
+) !default;

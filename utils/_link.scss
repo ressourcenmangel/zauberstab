@@ -1,0 +1,20 @@
+/**
+ * Shared styles for a basic link
+ */
+@mixin zb-link(
+  $color: $zb-link-color,
+  $decoration: $zb-link-decoration,
+  $hover-color: $zb-link-hover-color,
+  $hover-decoration: $zb-link-hover-decoration,
+  $transition: $zb-link-transition
+) {
+  color: $color;
+  text-decoration: $decoration;
+  transition: $transition;
+
+  &:hover,
+  &:focus {
+    color: $hover-color;
+    text-decoration: $hover-decoration;
+  }
+}

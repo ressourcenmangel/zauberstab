@@ -1,0 +1,50 @@
+/**
+ * Hides things but keeps it available for screen readers.
+ *
+ * @soruce https://github.com/inuitcss/inuitcss/blob/develop/tools/_tools.hidden.scss
+ * @param $important Apply all styles as !important
+ */
+@mixin zb-hidden-visually($important: false) {
+  @if ($important == true) {
+    $important: !important;
+  } @elseif ($important == false) {
+    $important: null;
+  } @else {
+    @error '`#{$important}` needs to be `true` or `false`.';
+  }
+
+  border: 0 $important;
+  clip: rect(0 0 0 0) $important;
+  clip-path: inset(50%) $important;
+  height: 1px $important;
+  margin: -1px $important;
+  overflow: hidden $important;
+  padding: 0 $important;
+  position: absolute $important;
+  white-space: nowrap $important;
+  width: 1px $important;
+}
+
+/**
+ * Undos hidden-visually()
+ *
+ * @param $important Apply all styles as !important
+ */
+@mixin zb-undo-hidden-visually($important: false) {
+  @if ($important == true) {
+    $important: !important;
+  } @elseif ($important == false) {
+    $important: null;
+  } @else {
+    @error '`#{$important}` needs to be `true` or `false`.';
+  }
+
+  clip: auto $important;
+  clip-path: none $important;
+  height: auto $important;
+  margin: 0 $important;
+  overflow: visible $important;
+  position: static $important;
+  white-space: normal $important;
+  width: auto $important;
+}

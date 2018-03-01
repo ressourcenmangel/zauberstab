@@ -1,0 +1,12 @@
+/**
+ * Contains floats in modern browsers
+ *
+ * @soruce http://cssmojo.com/the-very-latest-clearfix-reloaded/
+ */
+@mixin zb-clearfix() {
+  &::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}

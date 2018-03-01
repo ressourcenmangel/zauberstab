@@ -1,0 +1,39 @@
+@mixin mq-make-container($breakpoints: map-keys($mq-container-max-widths), $container-max-widths: $mq-container-max-widths, $body-padding: $mq-body-padding) {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    @include mq($from: $breakpoint) {
+      padding-left: mq-px2rem(map-get($body-padding, $breakpoint));
+      padding-right: mq-px2rem(map-get($body-padding, $breakpoint));
+
+      @if index($breakpoints, $breakpoint) {
+        width: mq-px2rem(map-get($container-max-widths, $breakpoint));
+      }
+    }
+  }
+}
+
+@mixin mq-make-row($body-padding: $mq-body-padding) {
+  @include clearfix();
+
+  @each $breakpoint, $padding in $body-padding {
+    @include mq($from: $breakpoint) {
+      margin-left: -1 * mq-px2rem($padding);
+      margin-right: -1 * mq-px2rem($padding);
+    }
+  }
+}
+
+@mixin mq-make-column($columns: $mq-columns, $gutter: $mq-gutter) {
+  float: left;
+
+  @each $breakpoint, $columns-count in $columns {
+    @include mq($from: $breakpoint) {
+      padding-left: mq-px2rem(map-get($gutter, $breakpoint));
+      padding-right: mq-px2rem(map-get($gutter, $breakpoint));
+      width: 100% / $columns-count;
+    }
+  }
+}

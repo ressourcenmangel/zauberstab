@@ -1,0 +1,30 @@
+/**
+ * Z-Index helper
+ *
+ * @param $element Element name
+ * @param $list List with elements (defaults to $z-index-order)
+ * @param $base Integer to start z-index
+ * @return Z-index value for element
+ */
+@function zb-z-index($element, $list: $zb-z-index-list, $base: 100) {
+  $result: ();
+
+  @for $i from length($list)*-1 through -1 {
+    @if type-of(nth($list, abs($i))) == list and $recursive {
+      $result: append($result, reverse(nth($list, abs($i)), $recursive));
+    }
+
+    @else {
+      $result: append($result, nth($list, abs($i)));
+    }
+  }
+
+  $z-index: index($result, $element);
+
+  @if $z-index {
+    @return $base + $z-index;
+  }
+
+  @warn 'There is no item "#{$element}" in this list';
+  @return $base;
+}

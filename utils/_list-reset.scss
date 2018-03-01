@@ -1,0 +1,9 @@
+/**
+ * Removes browser-default list styles
+ */
+@mixin zb-list-reset() {
+  list-style: none;
+  list-style-type: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}

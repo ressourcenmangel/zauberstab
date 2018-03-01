@@ -1,0 +1,49 @@
+/**
+ * Returns url() with an encoded SVG data-uri
+ *
+ * @param $svg Source SVG
+ * @return Inline encoded data value
+ */
+@function zb-svg-url($svg) {
+  // Chunk up string in order to avoid "stack level too deep" error
+  $encoded: '';
+  $slice: 2000;
+  $index: 0;
+  $loops: ceil(str-length($svg) / $slice);
+
+  // Encode
+  @for $i from 1 through $loops {
+    $chunk: str-slice($svg, $index, $index + $slice - 1);
+    $chunk: zb-svg-str-replace($chunk, '"', '\'');
+    $chunk: zb-svg-str-replace($chunk, '<', '%3C');
+    $chunk: zb-svg-str-replace($chunk, '>', '%3E');
+    $chunk: zb-svg-str-replace($chunk, '&', '%26');
+    $chunk: zb-svg-str-replace($chunk, '#', '%23');
+    $encoded: #{$encoded}#{$chunk};
+    $index: $index + $slice;
+  }
+
+  @return url('data:image/svg+xml;charset=utf8,#{$encoded}');
+}
+
+/**
+ * Replaces characters in a string
+ *
+ * @private
+ * @param $string Input value
+ * @param $search Value to search
+ * @param $replace Value to replace with
+ * @return Output value
+ */
+@function zb-svg-str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return
+      str-slice($string, 1, $index - 1) + $replace +
+      zb-svg-str-replace(str-slice($string, $index +
+      str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}

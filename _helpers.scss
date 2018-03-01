@@ -1,0 +1,70 @@
+@if ($zb-create-helpers == true) {
+  .#{$zb-helpers-prefix}-hidden-visually {
+    @include zb-hidden-visually($important: true);
+  }
+
+  .#{$zb-helpers-prefix}-hidden {
+    display: none !important;
+  }
+
+  .#{$zb-helpers-prefix}-block {
+    display: block !important;
+  }
+
+  .#{$zb-helpers-prefix}-inline-block {
+    display: inline-block !important;
+  }
+
+  $mq-breakpoints-keys: map-keys($mq-breakpoints);
+  @each $breakpoint in $mq-breakpoints-keys {
+    $index: index($mq-breakpoints-keys, $breakpoint);
+
+    @mixin zb-helpers-breakpoint-inner($breakpoint, $prefix: $zb-helpers-prefix) {
+      .#{$prefix}-hidden-#{$breakpoint} {
+        display: none !important;
+      }
+
+      .#{$prefix}-block-#{$breakpoint} {
+        display: block !important;
+      }
+
+      .#{$prefix}-inline-block-#{$breakpoint} {
+        display: inline-block !important;
+      }
+    }
+
+    @if ($index == 1) {
+      @include mq($until: nth($mq-breakpoints-keys, $index + 1)) {
+        @include zb-helpers-breakpoint-inner($breakpoint);
+      }
+    } @else if ($index == length($mq-breakpoints-keys)) {
+      @include mq($from: $breakpoint) {
+        @include zb-helpers-breakpoint-inner($breakpoint);
+      }
+    } @else {
+      @include mq($from: $breakpoint, $until: nth($mq-breakpoints-keys, $index + 1)) {
+        @include zb-helpers-breakpoint-inner($breakpoint);
+      }
+    }
+  }
+
+  .#{$zb-helpers-prefix}-align-center {
+    text-align: center !important;
+  }
+
+  .#{$zb-helpers-prefix}-align-left {
+    text-align: left !important;
+  }
+
+  .#{$zb-helpers-prefix}-align-right {
+    text-align: right !important;
+  }
+
+  .#{$zb-helpers-prefix}-collapse[aria-expanded='false'] {
+    display: none;
+  }
+
+  .#{$zb-helpers-prefix}-collapse[aria-expanded='true'] {
+    display: block;
+  }
+}
