@@ -3,8 +3,8 @@
  */
 @mixin zb-link(
   $color: $zb-link-color,
-  $decoration: $zb-link-decoration,
   $hover-color: $zb-link-hover-color,
+  $decoration: $zb-link-decoration,
   $hover-decoration: $zb-link-hover-decoration,
   $transition: $zb-link-transition
 ) {
