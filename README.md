@@ -16,6 +16,16 @@ Your `node_modules` must be included in SCSS `includePaths`/`--include-path`.
 @import '@rsm/zauberstab/zauberstab';
 ```
 
+## Changelog
+
+### 0.2.0
+
+* Reorder zb-link arguments
+
+### 0.1.0
+
+* First release
+
 ## License
 
 MIT © [ressourcenmangel GmbH](https://ressourcenmangel.de)
