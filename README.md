@@ -5,7 +5,7 @@
 ## Install
 
 ```bash
-$ yarn install @rsm/zauberstab
+$ yarn add @rsm/zauberstab
 ```
 
 ## Usage
