@@ -1,3 +1,17 @@
+@mixin zb-helpers-breakpoint-inner($breakpoint, $prefix: $zb-helpers-prefix) {
+  .#{$prefix}-hidden-#{$breakpoint} {
+    display: none !important;
+  }
+
+  .#{$prefix}-block-#{$breakpoint} {
+    display: block !important;
+  }
+
+  .#{$prefix}-inline-block-#{$breakpoint} {
+    display: inline-block !important;
+  }
+}
+
 @if ($zb-create-helpers == true) {
   .#{$zb-helpers-prefix}-hidden-visually {
     @include zb-hidden-visually($important: true);
@@ -18,20 +32,6 @@
   $mq-breakpoints-keys: map-keys($mq-breakpoints);
   @each $breakpoint in $mq-breakpoints-keys {
     $index: index($mq-breakpoints-keys, $breakpoint);
-
-    @mixin zb-helpers-breakpoint-inner($breakpoint, $prefix: $zb-helpers-prefix) {
-      .#{$prefix}-hidden-#{$breakpoint} {
-        display: none !important;
-      }
-
-      .#{$prefix}-block-#{$breakpoint} {
-        display: block !important;
-      }
-
-      .#{$prefix}-inline-block-#{$breakpoint} {
-        display: inline-block !important;
-      }
-    }
 
     @if ($index == 1) {
       @include mq($until: nth($mq-breakpoints-keys, $index + 1)) {
