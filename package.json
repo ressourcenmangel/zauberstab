@@ -1,6 +1,6 @@
 {
   "name": "@rsm/zauberstab",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Opinionated SCSS helpers and utils on top of sass-mq",
   "main": "_zauberstab.scss",
   "repository": "https://github.com/ressourcenmangel/zauberstab.git",

@@ -18,6 +18,10 @@ Your `node_modules` must be included in SCSS `includePaths`/`--include-path`.
 
 ## Changelog
 
+### 0.2.2
+
+* Add missing mq-px2rem() function
+
 ### 0.2.1
 
 * Move zb-helpers-breakpoint-inner() mixin to file start
