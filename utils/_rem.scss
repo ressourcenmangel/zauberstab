@@ -1,10 +1,10 @@
-@function mq-px2rem($px, $base-font-size: $mq-base-font-size) {
+@function zb-px2rem($px, $root-font-size: $zb-root-font-size) {
   @if unitless($px) {
     @warn 'Assuming #{$px} to be in pixels, attempting to convert it into pixels.';
-    @return mq-px2rem($px * 1px, $base-font-size);
+    @return zb-px2rem($px * 1px, $root-font-size);
   } @else if unit($px) == rem {
     @return $px;
   }
 
-  @return ($px / $base-font-size) * 1rem;
+  @return ($px / $root-font-size) * 1rem;
 }

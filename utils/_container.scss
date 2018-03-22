@@ -5,11 +5,11 @@
 
   @each $breakpoint, $container-max-width in $container-max-widths {
     @include mq($from: $breakpoint) {
-      padding-left: mq-px2rem(map-get($body-padding, $breakpoint));
-      padding-right: mq-px2rem(map-get($body-padding, $breakpoint));
+      padding-left: zb-px2rem(map-get($body-padding, $breakpoint));
+      padding-right: zb-px2rem(map-get($body-padding, $breakpoint));
 
       @if index($breakpoints, $breakpoint) {
-        width: mq-px2rem(map-get($container-max-widths, $breakpoint));
+        width: zb-px2rem(map-get($container-max-widths, $breakpoint));
       }
     }
   }
@@ -20,8 +20,8 @@
 
   @each $breakpoint, $padding in $body-padding {
     @include mq($from: $breakpoint) {
-      margin-left: -1 * mq-px2rem($padding);
-      margin-right: -1 * mq-px2rem($padding);
+      margin-left: -1 * zb-px2rem($padding);
+      margin-right: -1 * zb-px2rem($padding);
     }
   }
 }
@@ -31,8 +31,8 @@
 
   @each $breakpoint, $columns-count in $columns {
     @include mq($from: $breakpoint) {
-      padding-left: mq-px2rem(map-get($gutter, $breakpoint));
-      padding-right: mq-px2rem(map-get($gutter, $breakpoint));
+      padding-left: zb-px2rem(map-get($gutter, $breakpoint));
+      padding-right: zb-px2rem(map-get($gutter, $breakpoint));
       width: 100% / $columns-count;
     }
   }

@@ -18,6 +18,10 @@ Your `node_modules` must be included in SCSS `includePaths`/`--include-path`.
 
 ## Changelog
 
+### 0.3.0
+
+* Rename mq-px2rem to zb-px2rem and use root base font
+
 ### 0.2.2
 
 * Add missing mq-px2rem() function
